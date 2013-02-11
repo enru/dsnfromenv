@@ -1,5 +1,5 @@
 {
-    "name": "enru/DsnFromEnv",
+    "name": "enru/dsnfromenv",
     "require": {
         "php": ">=5.3.0"
     }

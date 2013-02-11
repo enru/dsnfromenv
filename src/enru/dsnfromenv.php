@@ -3,7 +3,7 @@
 @author Neill Russell <n@enru.co.uk>
 */
 
-namespace enru\DsnFromEnv {
+namespace enru\dsnfromenv {
 
     function parse($db_url='DATABASE_URL') {
 
