@@ -9,25 +9,26 @@ e.g.
 
 A database URL set in an environment variable:
     
-    export DATABASE_URL=postgres://USER:PASS@HOST:POST/DBNAME
+    export DATABASE_URL=postgres://USER:PASS@HOST:PORT/DBNAME
 
-...can be parsed this string:
+...can be parsed into this string:
 
-    'pgsql:host=HOST;port=POST;user=USER;dbname=DBNAME;password=PASSWORD'
+    'pgsql:host=HOST;port=PORT;user=USER;dbname=DBNAME;password=PASSWORD'
 
 ...using this code:
 
     <?php
 
-    $dsn = enru\DsnFromEnv\parse();
+    $dsn = new enru\DsnFromEnv();
+    $dsn_string = $dsn->parse();
 
 A database connection can then easily be made:
 
     <?php
 
     try {
-        $dsn = enru\DsnFromEnv\parse();
-        $dbh = new PDO($dsn);
+        $dsn = new enru\DsnFromEnv();
+        $dbh = new PDO($dsn->parse());
     }   
     catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
